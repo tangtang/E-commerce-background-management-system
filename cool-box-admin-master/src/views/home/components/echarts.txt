@@ -1,0 +1,43 @@
+echarts特点
+开源免费  功能丰富 支持多种数据 支持流数据
+移动端优化  跨平台 酷炫的特效 等
+
+echarts的使用
+
+1.第一步 引入echarts.js (echarts官网首页 https://echarts.apache.org/zh/index.html)
+可以在官网js库文件，也可以通过CDN 或者npm的方式 通过npm安装 echarts
+npm install echarts --save
+
+通过标签的方式直接引入构建好的echarts文件
+<script src="echarts.min.js"><script>
+
+2.第二步 准备一个具有宽度和高度的div盒子，用于放置echarts图表
+<div id="box" style="width:600px;height:600px"></div>
+
+
+3.初始化echarts实例
+var myCharts = echarts.init(document.getElementById('box'))
+
+4. 准备配置项
+很关键 因为他决定了图表的类型，以及呈现的 样式效果
+//柱状图
+var option = {
+    xAxis:{ //X轴配置项
+        type："category", // 类型为类别抽
+        data：['小明'，'小红'，'张三']  // 类别轴要展示的数据
+    }，
+    yAxis:{ // y轴配置项
+        type：'value' // 类型为数值轴
+    }，
+    series:[{
+        name:'语文'，
+        type：'bar', // 决定每个图表的类型
+        data：[70,92,87] 数值轴展示的数据
+    }]
+}
+
+5.第五步
+将配置项设置到echart 实例中
+myCharts.setoption(option)
+
+
